@@ -4,16 +4,18 @@ import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 
 @Controller('auth')
 export class AuthController {
-
-    constructor(private authService : AuthService){}
-
-    @Post('/signup')
-   async singUp(@Body() authCredentialsDto : AuthCredentialsDto) : Promise<String>{
+  constructor(private authService: AuthService) {}
+  @Post('/signup')
+  async singUp(
+    @Body() authCredentialsDto: AuthCredentialsDto,
+  ): Promise<String> {
     return this.authService.singUp(authCredentialsDto);
-   }
+  }
 
-   @Post('/signin')
-   async signIn(@Body() authCredentialsDto: AuthCredentialsDto) : Promise<String>{
+  @Post('/signin')
+  async signIn(
+    @Body() authCredentialsDto: AuthCredentialsDto,
+  ): Promise<String> {
     return this.authService.signIn(authCredentialsDto);
-   }
+  }
 }
